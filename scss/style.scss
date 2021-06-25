@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+:root {
+    --regular-font-size: 1.2rem;
+    --smaller-font-size: 1rem;
+    --vsmaller-font-size: 0.8rem;
+}
+
+html
+{
+    --background-color: #FFF;
+
+    --primary-font-color: #272A3A;
+    --secondary-font-color: #8A8EAA;
+
+    --card-color: #fff;
+    --container-color: #f5f5f5;
+
+    --card-shadow: #b5b5b5;
+    --card-shadow-rev: #FFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 10vw;
+    height: 10vh;
+}
+
+.container, .team {
+    display: grid;
+}
+
+.container {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.team {
+    grid-template-rows: 5vh auto;
+    row-gap: 1rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: var(--container-color);
+    padding-bottom: 4rem;
+}
+
+.tm-card, .tm-data {
+    display: flex;
+    align-items: center;
+}
+
+.tm-card {
+    width: 30vw;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+    background-color: var(--card-color);
+    box-shadow: 4px 4px 16px var(--card-shadow), -4px -4px 16px var(--card-shadow-rev);
+    border-radius: 2rem;
+}
+
+.tm-data {
+    justify-content: space-between;
+}
+
+.tm-img {
+    margin: 0 1.5rem;
+}
+
+.tm-name {
+    font-size: var(--regular-font-size);
+    color: var(--primary-font-color);
+    font-weight: 700;
+}
+
+.profession {
+    font-size: var(--smaller-font-size);
+    color: var(--secondary-font-color);
+}
+
+.social-media {
+    margin: 0 0.4rem;
+    font-size: 1.2rem;
+    color: var(--secondary-font-color);
+    transition: .4s;
+}
+
+.social-media:hover {
+    color: var(--primary-font-color);
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .team {width: 80vw;}
+    .tm-card {width: 72vw; border-radius: 1rem;}
+    .tm-name {font-size: var(--regular-font-size);}
+    .profession {font-size: var(--smaller-font-size);}
+}
+
+@media only screen and (max-width: 650px) {
+    .tm-card {width: 70vw; padding: 1rem;}
+    .tm-name {font-size: var(--smaller-font-size);}
+    .profession {font-size: var(--vsmaller-font-size);}
+}
+
+@media only screen and (max-width: 450px) {
+    h1 {font-size: var(--regular-font-size);}
+    .tm-card {width: 65vw;}
+}
