@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 :root {
     --regular-font-size: 1.2rem;
     --smaller-font-size: 1rem;
     --vsmaller-font-size: 0.8rem;
+
+    --regular-font-weight: 500;
+    --bolder-font-weight: 700;
 }
 
-html
+html[data-theme='light']
 {
     --background-color: #FFF;
 
@@ -18,6 +21,23 @@ html
 
     --card-shadow: #b5b5b5;
     --card-shadow-rev: #FFF;
+}
+
+html[data-theme='dark'] 
+{
+    --background-color: #212121;
+
+    --primary-font-color: #FFF;
+    --secondary-font-color: #D0D0D0;
+
+    --card-color: #676767;
+    --container-color: #444;
+    
+    --card-shadow: #555;
+    --card-shadow-rev: #222;
+    
+    --regular-font-size: 1.2rem;
+    --smaller-font-size: 1rem;
 }
 
 * {
@@ -32,7 +52,7 @@ body {
 }
 
 h1 {
-    margin: 0;
+    color: var(--primary-font-color);
 }
 
 a {
@@ -60,7 +80,6 @@ img {
     padding: 2rem;
     border-radius: 10px;
     background-color: var(--container-color);
-    padding-bottom: 4rem;
 }
 
 .tm-card, .tm-data {
@@ -88,7 +107,7 @@ img {
 .tm-name {
     font-size: var(--regular-font-size);
     color: var(--primary-font-color);
-    font-weight: 700;
+    font-weight: var(--bolder-font-weight);
 }
 
 .profession {
@@ -108,11 +127,16 @@ img {
     font-size: 1.5rem;
 }
 
-@media only screen and (max-width: 768px) {
-    .team {width: 80vw;}
-    .tm-card {width: 72vw; border-radius: 1rem;}
+@media only screen and (max-width: 1024px) {
+    .team {width: 60vw;}
+    .tm-card {width: 52vw; border-radius: 1rem;}
     .tm-name {font-size: var(--regular-font-size);}
     .profession {font-size: var(--smaller-font-size);}
+}
+
+@media only screen and (max-width: 768px) {
+    .team {width: 80vw;}
+    .tm-card {width: 72vw;}
 }
 
 @media only screen and (max-width: 650px) {
@@ -124,4 +148,59 @@ img {
 @media only screen and (max-width: 450px) {
     h1 {font-size: var(--regular-font-size);}
     .tm-card {width: 65vw;}
+}
+
+/* -- Toggle Switch -- */
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-container {
+    margin-top: -1rem;
+    padding-right: 0.5rem;
+}
+
+input[type=checkbox] {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 2rem;
+	height: 1.2rem;
+	background: #bada55;
+	display: block;
+	border-radius: 10px;
+	position: relative;
+    margin-bottom: 20px;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 9px;
+	height: 9px;
+	background: #fff;
+	border-radius: 9px;
+	transition: 0.4s;
+}
+
+input:checked + label {
+	background: grey;
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 13px;
 }
